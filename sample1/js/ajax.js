@@ -1,12 +1,13 @@
 (function() {
     function getData() {
         document.getElementById("Result").value = "問い合わせ中です…";
+        //↓渡すデータ作成
         var data = {
             "code": document.getElementById("Fruits").value
         }
-        var json = JSON.stringify(data);
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "./php/ajax.php");
+        var json = JSON.stringify(data);//JSON変換
+        var xhr = new XMLHttpRequest();//インスタンス生成
+        xhr.open("POST", "./php/ajax.php");//phpにデータ送る
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded;charset=UTF-8");
         xhr.send(json);
         xhr.onreadystatechange = function () {
